@@ -17,3 +17,21 @@
 -export([]).
 -compile(export_all).
 
+
+add_goods([],Bag)->
+	Bag;
+add_goods([#give{type = Type}|T],Bag)->
+	NewBag =
+		case Type div 10 of
+			?EQUIP_TYPE->
+				?true;
+			?MONEY_TYPE->
+				?true;
+			?COMSUM_TYPE->
+				?true;
+			?PROPERTY_TYPE->
+				?true;
+			_->
+				Bag
+		end,
+	add_goods(T,NewBag).
