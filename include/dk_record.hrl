@@ -29,11 +29,19 @@
 
 -record(goods,{
 	gid         ,
-	oid         ,
 	type        = ?undefined,
 	bind        = 0,
 	maxnum      = 1,
 	rat         = #{},
-	time        ,   %%时效性
+	createtime  ,   %%时效性
+	endtime     ,
 	describe
+}).
+-record(give,{
+	gid         ,
+	bind        = 0,
+	oid         ,
+	type        = ?undefined,
+	num         = 0,
+	limittime
 }).
