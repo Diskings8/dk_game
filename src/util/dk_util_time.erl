@@ -17,12 +17,13 @@
 get_system_time()->
 	erlang:system_time().
 
-get_system_time_sec()->
-	erlang:system_time(second).
+get_system_time_micsec()->
+	erlang:system_time(microsecond).
 
 get_timestamp()->
 	erlang:timestamp().
 
 get_now()->
 	erlang:now().
+
 
