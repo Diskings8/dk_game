@@ -4,24 +4,17 @@
 %%% @doc
 %%%
 %%% @end
-%%% Created : 25. 三月 2019 15:26
+%%% Created : 25. 三月 2019 16:03
+%%% Modified : <hzh> make sure the unit part at first
 %%%-------------------------------------------------------------------
--module(data_bag_type).
+-module(dk_base_goods).
 -author("admin").
 
--include("dk_record.hrl").
 -include("dk_macro.hrl").
--include("data_/data_bag_type.hrl").
+-include("dk_record.hrl").
+-include("data_/data_goods_type.hrl").
 
-%% API
--export([]).
 -compile(export_all).
+%% API
+%% {Gid, Num,{IsNum,IsBind},{NoNum,NoBind},{LimNum,Limittime}}
 
-
-get(10)->
-	#bag{
-		type        = ?EQUIPMENT,
-		goodlist    = [],
-		extrasize   = 0,
-		ext         = #{}
-	}.

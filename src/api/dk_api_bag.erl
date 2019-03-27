@@ -6,7 +6,7 @@
 %%% @end
 %%% Created : 25. 三月 2019 15:59
 %%%-------------------------------------------------------------------
--module(dk_bag_api).
+-module(dk_api_bag).
 -author("admin").
 
 -include("dk_macro.hrl").

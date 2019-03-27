@@ -14,3 +14,10 @@
 -define(infility,infility).
 
 -define(IF(X,T,F),case X of ?true->T; ?false->F end).
+
+
+-define(second,         second).
+-define(SECONDTIME,     1).
+-define(MINUTETIME,     60*?SECONDTIME).
+-define(HOURTIME,       60*?MINUTETIME).
+-define(DAYTIME,        24*?HOURTIME).

@@ -6,7 +6,7 @@
 %%% @end
 %%% Created : 25. 三月 2019 17:27
 %%%-------------------------------------------------------------------
--module(dk_good_api).
+-module(dk_api_good).
 -author("admin").
 
 -include("dk_macro.hrl").

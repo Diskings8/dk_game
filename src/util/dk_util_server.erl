@@ -4,13 +4,18 @@
 %%% @doc
 %%%
 %%% @end
-%%% Created : 26. 三月 2019 16:26
+%%% Created : 27. 三月 2019 15:43
 %%%-------------------------------------------------------------------
--module(data_goods).
+-module(dk_util_server).
 -author("admin").
 -include("dk_record.hrl").
+
 %% API
--export([]).
+%-export([]).
 -compile(export_all).
-get(120000)->
-	#goods{}.
+
+set_server_id(Server,ID)->
+	Server#server{serverid = ID}.
+
+get_server_id(#server{serverid = ID}=_Server)->
+	ID.

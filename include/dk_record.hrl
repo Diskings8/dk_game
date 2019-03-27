@@ -19,6 +19,10 @@
 	rat         = #{},      %%属性
 	ext         = #{}
 }).
+-record(server,{
+	serverid    = 0,
+	servername  = << >>
+}).
 
 -record(bag,{
 	type        ,
@@ -29,6 +33,7 @@
 
 -record(goods,{
 	gid         ,
+	oid         ,
 	type        = ?undefined,
 	bind        = 0,
 	maxnum      = 1,

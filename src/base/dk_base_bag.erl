@@ -6,7 +6,7 @@
 %%% @end
 %%% Created : 25. 三月 2019 14:31
 %%%-------------------------------------------------------------------
--module(base_bag).
+-module(dk_base_bag).
 -author("admin").
 
 -include("dk_macro.hrl").
@@ -21,7 +21,7 @@ init_bag(Type,OldBag)->
 		?true->
 			OldBag;
 		?false->
-			TypeBag = data_bag_type:get(Type),
+			TypeBag = dk_data_bag_type:get(Type),
 			OldBag#{Type =>TypeBag}
 	end.
 
