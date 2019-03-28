@@ -18,20 +18,30 @@
 -compile(export_all).
 
 
-add_goods([],Bag)->
-	Bag;
-add_goods([#give{type = Type}|T],Bag)->
-	NewBag =
-		case Type div 10 of
-			?EQUIP_TYPE->
-				?true;
-			?MONEY_TYPE->
-				?true;
-			?COMSUM_TYPE->
-				?true;
-			?PROPERTY_TYPE->
-				?true;
-			_->
-				Bag
-		end,
-	add_goods(T,NewBag).
+
+add_good(Give,Opt,Bag)->
+	add_goods([Give],Opt,Bag).
+add_goods(Gives,_Opt,#bag{goodlist = GL,maxsize = MS,extrasize = ES}=Bag)->
+	NewGL   = dk_base_goods:add_goods(Gives,GL),
+	Len1    = length(NewGL),
+	?IF(Len1 =< MS + ES,Bag#bag{goodlist = NewGL,cursize = Len1},Bag).      %%保留对超越包容量的操作参数，尚不处理
+
+del_good(Cost,Bag)->
+	del_goods([Cost],Bag).
+del_goods(Costs,#bag{goodlist = GL}=Bag)->
+	case dk_base_goods:del_goods(Costs,GL) of
+		{?false,_}->
+			{?false,Bag};
+		NewGL->
+			Len1 = length(NewGL),
+			{?true,Bag#bag{goodlist = NewGL,cursize = Len1}}
+	end.
+
+del_oid(Oid,#bag{goodlist = GL}=Bag)->
+	case dk_base_goods:del_by_oid(Oid,GL) of
+		?false->
+			{?false,Bag};
+		NewGL->
+			Len1 = length(NewGL),
+			{?true,Bag#bag{goodlist = NewGL,cursize = Len1}}
+	end.

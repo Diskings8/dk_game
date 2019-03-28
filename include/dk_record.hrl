@@ -28,6 +28,8 @@
 	type        ,
 	goodlist    = [],
 	extrasize   = 0,
+	cursize     = 0,
+	maxsize     = 1,
 	ext         = #{}
 }).
 
@@ -36,6 +38,7 @@
 	oid         ,
 	type        = ?undefined,
 	bind        = 0,
+	curnum      = 0,
 	maxnum      = 1,
 	rat         = #{},
 	createtime  ,   %%时效性
@@ -49,4 +52,10 @@
 	type        = ?undefined,
 	num         = 0,
 	limittime
+}).
+-record(cost,{
+	gid        ,
+	oid         ,
+	type        = ?undefined,
+	num         = 0
 }).
